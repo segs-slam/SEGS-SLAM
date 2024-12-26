@@ -1,0 +1,14 @@
+/prgs-slam-betav3/build/CMakeFiles/simple_knn.dir
+/prgs-slam-betav3/build/CMakeFiles/cuda_rasterizer.dir
+/prgs-slam-betav3/build/CMakeFiles/imgui.dir
+/prgs-slam-betav3/build/CMakeFiles/gaussian_mapper.dir
+/prgs-slam-betav3/build/CMakeFiles/gaussian_viewer.dir
+/prgs-slam-betav3/build/CMakeFiles/train_colmap.dir
+/prgs-slam-betav3/build/CMakeFiles/replica_mono.dir
+/prgs-slam-betav3/build/CMakeFiles/replica_rgbd.dir
+/prgs-slam-betav3/build/CMakeFiles/tum_mono.dir
+/prgs-slam-betav3/build/CMakeFiles/tum_rgbd.dir
+/prgs-slam-betav3/build/CMakeFiles/euroc_stereo.dir
+/prgs-slam-betav3/build/CMakeFiles/scannet_rgbd.dir
+/prgs-slam-betav3/build/CMakeFiles/edit_cache.dir
+/prgs-slam-betav3/build/CMakeFiles/rebuild_cache.dir
