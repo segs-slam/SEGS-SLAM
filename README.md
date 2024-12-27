@@ -5,7 +5,7 @@ PRGS-SLAM: Progressively Refined 3D Gaussian Splatting for for Monocular, Stereo
 
 ## 📣 News
 ### 📢  Current Status:
-- 🛠️ Open-sourced executable files available for running our algorithm without compilation.
+- 🛠️ Full source code and pre-trained models are under preparation. Stay tuned!
 - ✅ **[2024.12.26]** Open-sourced executable files available for running our algorithm without compilation. Enjoying it 😊😊😊 .
 
 ## 1 Usage Instructions
@@ -17,6 +17,34 @@ We provide two ways to run our algorithm:
 
 ## 2.1 Docker (Strongly Recommended)
 
+### Install Dependencies
+You can install Docker [here](https://docs.docker.com/engine/install/)
+
+Also add the [nvidia-docker](https://nvidia.github.io/nvidia-docker/) repository
+```
+curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo apt-key add -
+distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
+curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | \
+  sudo tee /etc/apt/sources.list.d/nvidia-docker.list
+```
+Install the Nvidia container/docker toolkits
+```
+sudo apt-get update
+sudo apt-get install -y nvidia-container-toolkit nvidia-docker2
+sudo systemctl restart docker
+```
+
+### Container Setup
+Build the docker container
+
+```
+git clone https://github.com/prgs-slam/PRGS-SLAM.git
+cd PRGS-SLAM/docker
+docker build -t prgs-slam-image .
+docker images
+sudo docker run --gpus all -it --name prgs-slam prgs-slam-image /bin/bash
+```
+Then you can go to [Installation of PRGS-SLAM](#3-installation-of-prgs-slam) directly.
 
 
 
@@ -203,13 +231,18 @@ make install
 ```
 
 ## 3 Installation of PRGS-SLAM
+(optional) Download the repository. If you use docker, you don't need to download again.
 ```
 git clone https://github.com/prgs-slam/PRGS-SLAM.git
-cd PRGS-SLAM/
-chmod +x ./build.sh
-./build.sh
 ```
-
+Add `LD_LIBRARY_PATH`
+```
+cd /PRGS-SLAM
+cd ORB-SLAM3/Vocabulary/
+tar -xf ORBvoc.txt.tar.gz
+cd ../..
+export LD_LIBRARY_PATH=/PRGS-SLAM/lib/:/PRGS-SLAM/ORB-SLAM3/lib/:/PRGS-SLAM/ORB-SLAM3/Thirdparty/DBoW2/lib/:/PRGS-SLAM/ORB-SLAM3/Thirdparty/g2o/lib/
+```
 ## 4 PRGS-SLAM Examples on Some Benchmark Datasets
 
 The benchmark datasets mentioned in our paper: [Replica (NICE-SLAM Version)](https://github.com/cvg/nice-slam), [TUM RGB-D](https://cvg.cit.tum.de/data/datasets/rgbd-dataset/download), [EuRoC](https://projects.asl.ethz.ch/datasets/doku.php?id=kmavvisualinertialdatasets).
@@ -225,12 +258,14 @@ chmod +x ./*.sh
 ### Run
 1. For testing, you could use the below commands to run the system after specifying the `PATH_TO_tum` and `PATH_TO_SAVE_RESULTS`. Currently, the viewer is developping, we would disable the viewer by adding `no_viewer` during the evaluation.
 ```
-../bin/tum_rgbd \
-    ../ORB-SLAM3/Vocabulary/ORBvoc.txt \
-    ../cfg/ORB_SLAM3/RGB-D/TUM/tum_freiburg1_desk.yaml \
-    ../cfg/gaussian_mapper/RGB-D/TUM/tum_rgbd.yaml \
+cd ..
+chmod +x ./bin/tum_rgbd ./bin/tum_mono ./bin/replica_rgbd ./bin/replica_mono ./bin/euroc_stereo
+./bin/tum_rgbd \
+    ./ORB-SLAM3/Vocabulary/ORBvoc.txt \
+    ./cfg/ORB_SLAM3/RGB-D/TUM/tum_freiburg1_desk.yaml \
+    ./cfg/gaussian_mapper/RGB-D/TUM/tum_rgbd.yaml \
     PATH_TO_tum/rgbd_dataset_freiburg1_desk \
-    ../cfg/ORB_SLAM3/RGB-D/TUM/associations/tum_freiburg1_desk.txt \
+    ./cfg/ORB_SLAM3/RGB-D/TUM/associations/tum_freiburg1_desk.txt \
     PATH_TO_SAVE_RESULTS \
     no_viewer \
     undistorted_image
@@ -254,17 +289,3 @@ chmod +x ./*.sh
 
 
 
-<!--
-**prgs-slam/PRGS-SLAM** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-
-Here are some ideas to get you started:
-
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
