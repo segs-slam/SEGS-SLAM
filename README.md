@@ -3,8 +3,10 @@
 PRGS-SLAM: Progressively Refined 3D Gaussian Splatting for for Monocular, Stereo, and RGB-D SLAM
 ### ✨[Homepage](https://prgs-slam.github.io/)✨
 
-## 0 Special Notice
-Currently, we have only open-sourced the executable files, which allow you to run our algorithm without the need to compile the code. The full source code will be open-sourced in the future. We are also actively working on releasing the pre-trained models, so stay tuned.
+## 📣 News
+### 📢  Current Status:
+- 🛠️ Open-sourced executable files available for running our algorithm without compilation.
+- ✅ **[2024.12.26]** Open-sourced executable files available for running our algorithm without compilation. Enjoying it 😊😊😊 .
 
 ## 1 Usage Instructions
 
