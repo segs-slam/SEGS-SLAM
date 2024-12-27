@@ -284,11 +284,57 @@ chmod +x ./*.sh
 ```
 
 ### Evaluation 
-
-
-
+#### Prerequisites
+To use this toolkit, you have to ensure your results on each dataset are stored in the correct format. For example, 
 ```
-cd scripts
+results
+├── replica_mono_0
+│   ├── office0
+│   ├── ....
+│   └── room2
+├── replica_rgbd_0
+│   ├── office0
+│   ├── ....
+│   └── room2
+│
+└── [replica/tum/euroc]_[mono/stereo/rgbd]_num  ....
+    ├── scene_1
+    ├── ....
+    └── scene_n
+```
+
+#### Install required python packages
+```
+# You need to install a compatible Pytorch as well.
+# such as conda install pytorch==2.1.2 torchvision==0.16.2 pytorch-cuda=11.8 -c pytorch -c nvidia
+
+pip install evo numpy scipy scikit-image lpips pillow tqdm plyfile
+```
+
+
+#### Convert Replica GT camera pose files to suitable pose files to run the EVO package
+```
+python shapeReplicaGT.py --replica_dataset_path PATH_TO_REPLICA_DATASET
+```
+
+#### Copy TUM camera.yaml to the corresponding dataset path
+Since images on some sequences of TUM dataset contain distortion, we need to undistort the ground truth images before evaluation.
+In addition, the file `camera.yaml` is used as an indicator in `run.py`.
+```
+cp TUM/fr1/camera.yaml PATH_TO_TUM_DATASET/rgbd_dataset_freiburg1_desk
+cp TUM/fr2/camera.yaml PATH_TO_TUM_DATASET/rgbd_dataset_freiburg2_xyz
+```
+
+#### Run & Evaluation
+To get all the metrics, you can run 
+```
+python onekey.py --dataset_center_path PATH_TO_ALL_DATASET --result_main_folder RESULTS_PATH
+```
+Finally, you are supposed to get two files including `RESULTS_PATH/log.txt` and `RESULTS_PATH/log.csv`.
+
+If all the environments are set up, you can evaluate the performance of our algorithm on all sequences using the following command:
+```
+cd PRGS-SLAM/scripts
 chmod +x ./*.sh
 ./all.sh
 ```
