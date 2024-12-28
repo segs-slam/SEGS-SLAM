@@ -247,7 +247,7 @@ export LD_LIBRARY_PATH=/PRGS-SLAM/lib/:/PRGS-SLAM/ORB-SLAM3/lib/:/PRGS-SLAM/ORB-
 
 The benchmark datasets mentioned in our paper: [Replica (NICE-SLAM Version)](https://github.com/cvg/nice-slam), [TUM RGB-D](https://cvg.cit.tum.de/data/datasets/rgbd-dataset/download), [EuRoC](https://projects.asl.ethz.ch/datasets/doku.php?id=kmavvisualinertialdatasets).
 
-### Download the dataset (optional)
+### Download the dataset
 ```
 cd scripts
 chmod +x ./*.sh
