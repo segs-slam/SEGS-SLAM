@@ -18,7 +18,7 @@ Model.update_init_factor: 16
 Model.update_hierachy_factor: 4
 
 Model.use_feat_bank: 0 #0 #False
-Model.appearance_dim: 0 #32
+Model.appearance_dim: 32 #32
 Model.lowpoly: 0  # 0:false, 1 or other integer:true
 Model.ds: 1
 Model.ratio: 1 # sampling the input point cloud
@@ -130,8 +130,8 @@ Optimization.success_threshold: 0.8
 Optimization.densify_grad_threshold: 0.0002
 
 #for frequency regulization
-Mapper.use_frequency_regularization: 0  # 0:false, 1 or other integer:true
-Mapper.use_multi_resolution: 0 # 0:false, 1 or other integer:true
+Mapper.use_frequency_regularization: 1  # 0:false, 1 or other integer:true
+Mapper.use_multi_resolution: 1 # 0:false, 1 or other integer:true
 Mapper.scale_num: 3 
 Mapper.frequency_regulization_until: 15000
 Mapper.high_frequency_regularization_start: 5000
