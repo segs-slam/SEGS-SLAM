@@ -304,13 +304,12 @@ results
 ```
 
 #### Install required python packages
+You need to install a compatible Pytorch as well. [Anaconda](https://docs.anaconda.com/miniconda/install/#quick-command-line-install) is recommended.
 ```
-# You need to install a compatible Pytorch as well.
-# such as conda install pytorch==2.1.2 torchvision==0.16.2 pytorch-cuda=11.8 -c pytorch -c nvidia
-
-pip install evo numpy scipy scikit-image lpips pillow tqdm plyfile
+cd /PRGS-SLAM/eval
+conda env create --file environment.yml
+conda activate prgs-slam
 ```
-
 
 #### Convert Replica GT camera pose files to suitable pose files to run the EVO package
 ```
