@@ -1,7 +1,7 @@
-# PRGS-SLAM
+# SEGS-SLAM
 
-PRGS-SLAM: Progressively Refined 3D Gaussian Splatting for for Monocular, Stereo, and RGB-D SLAM
-### ✨[Homepage](https://prgs-slam.github.io/)✨
+SEGS-SLAM: Structure-enhanced 3D Gaussian Splatting SLAM with Appearance Embedding
+### ✨[Homepage](https://segs-slam.github.io/)✨
 
 ## 📣 News
 ### 📢  Current Status:
@@ -38,13 +38,13 @@ sudo systemctl restart docker
 Build the docker container
 
 ```
-git clone https://github.com/prgs-slam/PRGS-SLAM.git
-cd PRGS-SLAM/docker
-docker build -t prgs-slam-image .
+git clone https://github.com/segs-slam/SEGS-SLAM.git
+cd SEGS-SLAM/docker
+docker build -t SEGS-slam-image .
 docker images
-sudo docker run --gpus all -it --name prgs-slam prgs-slam-image /bin/bash
+sudo docker run --gpus all -it --name segs-slam segs-slam-image /bin/bash
 ```
-Then you can go to [Installation of PRGS-SLAM](#3-installation-of-prgs-slam) directly.
+Then you can go to [Installation of SEGS-SLAM](#3-installation-of-segs-slam) directly.
 
 
 
@@ -149,7 +149,7 @@ To install OpenCV into the system path:
 ```
 sudo make install
 ```
-If you prefer installing OpenCV to a custom path by adding `-DCMAKE_INSTALL_PREFIX=/your_preferred_path` option to the `cmake` command, remember to help PRGS-SLAM find OpenCV by adding additional cmake options. See `build.sh` for details. Otherwise, you can also add the following line to `CMakeLists.txt`, `ORB-SLAM3/CMakeLists.txt` and `ORB-SLAM3/Thirdparty/DBoW2/CMakeLists.txt`, just like what we did for LibTorch.
+If you prefer installing OpenCV to a custom path by adding `-DCMAKE_INSTALL_PREFIX=/your_preferred_path` option to the `cmake` command, remember to help SEGS-SLAM find OpenCV by adding additional cmake options. See `build.sh` for details. Otherwise, you can also add the following line to `CMakeLists.txt`, `ORB-SLAM3/CMakeLists.txt` and `ORB-SLAM3/Thirdparty/DBoW2/CMakeLists.txt`, just like what we did for LibTorch.
 ```
 set(OpenCV_DIR /your_preferred_path/lib/cmake/opencv4)
 ```
@@ -230,20 +230,20 @@ make -j64
 make install
 ```
 
-## 3 Installation of PRGS-SLAM
+## 3 Installation of SEGS-SLAM
 (optional) Download the repository. If you use docker, you don't need to download again.
 ```
-git clone https://github.com/prgs-slam/PRGS-SLAM.git
+git clone https://github.com/segs-slam/SEGS-SLAM.git
 ```
 Add `LD_LIBRARY_PATH`
 ```
-cd /PRGS-SLAM
+cd /SEGS-SLAM
 cd ORB-SLAM3/Vocabulary/
 tar -xf ORBvoc.txt.tar.gz
 cd ../..
-export LD_LIBRARY_PATH=/PRGS-SLAM/lib/:/PRGS-SLAM/ORB-SLAM3/lib/:/PRGS-SLAM/ORB-SLAM3/Thirdparty/DBoW2/lib/:/PRGS-SLAM/ORB-SLAM3/Thirdparty/g2o/lib/
+export LD_LIBRARY_PATH=/SEGS-SLAM/lib/:/SEGS-SLAM/ORB-SLAM3/lib/:/SEGS-SLAM/ORB-SLAM3/Thirdparty/DBoW2/lib/:/SEGS-SLAM/ORB-SLAM3/Thirdparty/g2o/lib/
 ```
-## 4 PRGS-SLAM Examples on Some Benchmark Datasets
+## 4 SEGS-SLAM Examples on Some Benchmark Datasets
 
 The benchmark datasets mentioned in our paper: [Replica (NICE-SLAM Version)](https://github.com/cvg/nice-slam), [TUM RGB-D](https://cvg.cit.tum.de/data/datasets/rgbd-dataset/download), [EuRoC](https://projects.asl.ethz.ch/datasets/doku.php?id=kmavvisualinertialdatasets).
 
@@ -304,9 +304,9 @@ results
 ```
 Our default, provided install method is based on [Anaconda](https://docs.anaconda.com/miniconda/install/#quick-command-line-install) package and environment management:
 ```
-cd /PRGS-SLAM/eval
+cd /SEGS-SLAM/eval
 conda env create --file environment.yml
-conda activate prgs-slam
+conda activate segs-slam
 ```
 
 Convert Replica GT camera pose files to suitable pose files to run the EVO package
@@ -331,7 +331,7 @@ Finally, you are supposed to get two files including `RESULTS_PATH/log.txt` and 
 
 If all the environments are set up, you can evaluate the performance of our algorithm on all sequences using the following command:
 ```
-cd PRGS-SLAM/scripts
+cd SEGS-SLAM/scripts
 chmod +x ./*.sh
 ./all.sh
 ```
