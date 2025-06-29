@@ -345,7 +345,7 @@ Citation
 	title = {SEGS-SLAM: Structure-enhanced 3D Gaussian Splatting SLAM with Appearance Embedding},
 	author = {Tianci Wen, Zhiang Liu, Yongchun Fang },
 	booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision},
-	year = {2024}
+	year = {2025}
 }
 
 
