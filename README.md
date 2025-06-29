@@ -6,7 +6,7 @@ SEGS-SLAM: Structure-enhanced 3D Gaussian Splatting SLAM with Appearance Embeddi
 
 ## 📣 News
 ### 📢  Current Status:
-⚠️ Important Notice​​
+#### ⚠️ Important Notice​​
 This repository is ​​only for reviewer verification​​ and will ​​no longer be maintained​​.
 
 For the ​​official maintained code​​, please visit:
