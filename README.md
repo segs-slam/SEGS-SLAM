@@ -10,7 +10,7 @@ SEGS-SLAM: Structure-enhanced 3D Gaussian Splatting SLAM with Appearance Embeddi
 This repository is ​​only for reviewer verification​​ and will ​​no longer be maintained​​.
 
 For the ​​official maintained code​​, please visit:
-🔗 ​​https://github.com/leaner-forever/SEGS-SLAM​​
+[SEGS-SLAM offical code](​​https://github.com/leaner-forever/SEGS-SLAM​​)
 
 Enjoy! 🚀
 
